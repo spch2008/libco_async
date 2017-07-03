@@ -1,19 +1,20 @@
 /**
-* @file   work_thread.h
+* @file   frame_work.h
 * @author sunpengcheng(sunpengcheng@foxmail.com)
 * @date   2017-06-04 18:43:48
 * @brief
 **/
-#ifndef _WORK_THREAD_H_
-#define _WORK_THREAD_H_
+#ifndef _FRAME_WORK_H_
+#define _FRAME_WORK_H_
 
 #include "thread.h"
 #include "thread_queue.h"
 
-class WorkThread : public Thread {
+class FrameWork : public Thread {
  public:
-  WorkThread(ThreadQueue<int>* thread_queue);
-  virtual void Do(int);
+  FrameWork();
+  void SetFdQueue(ThreadQueue<int>* thread_queue);
+  virtual void Do(int) = 0;
 
  private:
   void Handler();

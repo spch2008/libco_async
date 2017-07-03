@@ -5,8 +5,8 @@ AR=ar
 CFLAGS=-g -Wall
 LDFLAGS=-lthread -pthread -levent -lhiredis
 
-INCDIR=../third/include
-LIBDIR=../third/lib
+INCDIR=../common/include
+LIBDIR=../common/lib
 
 INCS=-I $(INCDIR)
 LIBS=-L $(LIBDIR)
@@ -19,7 +19,7 @@ LIBNAME=lib$(LIBPREX).a
 
 EXEC = main
 
-main: main.o work_thread.o end_point.o
+main: frame_main.o frame_work.o end_point.o
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) $(LIBS) -o $@
 
 %.o : %.cpp

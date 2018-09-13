@@ -54,6 +54,8 @@ void* FrameWork::WorkerHandler(void* arg) {
 }
 
 void* FrameWork::MasterHandler(void* arg) {
+  co_enable_hook_sys();
+  
   CoEntry* co_entry = reinterpret_cast<CoEntry*>(arg);
   FrameWork* frame_work = co_entry->frame_work;
 
